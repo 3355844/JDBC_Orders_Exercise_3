@@ -14,7 +14,7 @@ public class ResourcesManager {
     private DaoGoods daoGoods;
     private DaoOrder daoOrder;
     private ArrayList<Client> clients;
-    private ArrayList<Goods> goodsList;
+    private ArrayList<Good> goodList;
     private ArrayList<Order> orders;
 
     public ResourcesManager() {
@@ -22,7 +22,7 @@ public class ResourcesManager {
         this.daoGoods = new DaoGoods();
         this.daoOrder = new DaoOrder();
         this.clients = new ArrayList<>();
-        this.goodsList = new ArrayList<>();
+        this.goodList = new ArrayList<>();
         this.orders = new ArrayList<>();
     }
 
@@ -58,12 +58,12 @@ public class ResourcesManager {
         this.clients = clients;
     }
 
-    public ArrayList<Goods> getGoodsList() {
-        return goodsList;
+    public ArrayList<Good> getGoodList() {
+        return goodList;
     }
 
-    public void setGoodsList(ArrayList<Goods> goodsList) {
-        this.goodsList = goodsList;
+    public void setGoodList(ArrayList<Good> goodList) {
+        this.goodList = goodList;
     }
 
     public ArrayList<Order> getOrders() {
