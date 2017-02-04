@@ -4,6 +4,7 @@ package models;
  * Created by 33558 on 04.02.2017.
  */
 public class Good {
+
     private int idGood;
     private String nameGood;
     private String descriptionGood;

@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * Created by 33558 on 04.02.2017.
  */
 public class ResourcesManager {
+
     private DaoClient daoClient;
     private DaoGoods daoGoods;
     private DaoOrder daoOrder;

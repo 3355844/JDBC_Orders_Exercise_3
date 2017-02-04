@@ -4,6 +4,7 @@ package models;
  * Created by 33558 on 04.02.2017.
  */
 public class Order {
+
     private int idOrder;
     private int idClient;
     private int idGoods;
