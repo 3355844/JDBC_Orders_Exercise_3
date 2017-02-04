@@ -55,7 +55,7 @@
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="24" parent="15" name="DISCRIPTION_GOOD">
+    <column id="24" parent="15" name="DESCRIPTION_GOOD">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
