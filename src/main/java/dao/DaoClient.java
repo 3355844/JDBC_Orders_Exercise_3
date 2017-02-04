@@ -20,7 +20,7 @@ public class DaoClient {
 
     public void addClientToDB(Client client) {
         PreparedStatement statement;
-        String query = "INSERT INTO clients (NAME_CLIENT, ADDRESS_CLIENT, PHONE_CLIENT) VALUES (?,?,?)";
+        String query = "INSERT INTO clients (NAME_CLIENT, ADDRESS_CLIENT, PHONE_CLIENT) VALUES (?,?,?);";
         try {
             statement = connector.getConnection().prepareStatement(query);
             statement.setString(1, client.getNameClient());

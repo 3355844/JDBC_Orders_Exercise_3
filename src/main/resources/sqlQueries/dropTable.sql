@@ -1,1 +1,1 @@
-DROP TABLE goods;
+DROP TABLE orders;

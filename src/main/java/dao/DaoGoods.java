@@ -20,7 +20,7 @@ public class DaoGoods {
 
     public void addGoodToDB(Good good) {
         PreparedStatement statement;
-        String query = "INSERT INTO goods (NAME_GOOD, DESCRIPTION_GOOD, PRICR_GOOD) VALUES (?,?,?)";
+        String query = "INSERT INTO goods (NAME_GOOD, DESCRIPTION_GOOD, PRICE_GOOD) VALUES (?,?,?);";
         try {
             statement = connector.getConnection().prepareStatement(query);
             statement.setString(1, good.getNameGood());

@@ -20,7 +20,7 @@ public class DaoOrder {
 
     public void addOrderToDB(Order order) {
         PreparedStatement statement;
-        String query = "INSERT INTO orders (ID_CLIENT, ID_GOOD) VALUES (?,?";
+        String query = "INSERT INTO orders (ID_CLIENT, ID_GOOD) VALUES (?,?)";
         try {
             statement = connector.getConnection().prepareStatement(query);
             statement.setInt(1, order.getIdClient());

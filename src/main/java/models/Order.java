@@ -8,6 +8,15 @@ public class Order {
     private int idClient;
     private int idGoods;
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "idOrder=" + idOrder +
+                ", idClient=" + idClient +
+                ", idGoods=" + idGoods +
+                '}';
+    }
+
     public int getIdOrder() {
         return idOrder;
     }
