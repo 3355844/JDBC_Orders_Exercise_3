@@ -48,4 +48,31 @@ public class DaoClient {
         }
         return client;
     }
+
+    public void updateClient(Client client) {
+        PreparedStatement statement;
+        String query = "UPDATE clients SET NAME_CLIENT=?, ADDRESS_CLIENT=?,PHONE_CLIENT=? WHERE ID_CLIENT=?;";
+        try {
+            statement = connector.getConnection().prepareStatement(query);
+            statement.setString(1, client.getNameClient());
+            statement.setString(2, client.getAddressClient());
+            statement.setString(3, client.getPhoneClient());
+            statement.setInt(4, client.getIdClient());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void dellClient(Client client) {
+        String query = "DELETE FROM clients WHERE ID_CLIENT=?";
+        PreparedStatement statement;
+        try {
+            statement = connector.getConnection().prepareStatement(query);
+            statement.setInt(1, client.getIdClient());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

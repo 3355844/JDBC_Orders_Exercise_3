@@ -1,6 +1,5 @@
 package dao;
 
-import models.Client;
 import models.Good;
 import utills.MySqlConnector;
 
@@ -47,5 +46,32 @@ public class DaoGoods {
             e.printStackTrace();
         }
         return good;
+    }
+
+    public void updateGood(Good good) {
+        PreparedStatement statement;
+        String query = "UPDATE goods SET NAME_GOOD=?, DESCRIPTION_GOOD=?,PRICE_GOOD=? WHERE ID_GOOD=?;";
+        try {
+            statement = connector.getConnection().prepareStatement(query);
+            statement.setString(1, good.getNameGood());
+            statement.setString(2, good.getDescriptionGood());
+            statement.setDouble(3, good.getPriceGood());
+            statement.setInt(4, good.getIdGood());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void dellGood(Good good) {
+        String query = "DELETE FROM goods WHERE ID_GOOD=?";
+        PreparedStatement statement;
+        try {
+            statement = connector.getConnection().prepareStatement(query);
+            statement.setInt(1, good.getIdGood());
+            statement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
