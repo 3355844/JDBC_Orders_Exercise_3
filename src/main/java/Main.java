@@ -1,55 +1,51 @@
 import models.Client;
 import models.Good;
 import models.Order;
-import models.ResourcesManager;
+import dao.DaoManager;
 
 /**
  * Created by 33558 on 04.02.2017.
  */
 public class Main {
     public static void main(String[] args) {
-        ResourcesManager manager = new ResourcesManager();
+        DaoManager manager = new DaoManager();
 
         Client client = new Client();
         client.setNameClient("Some One");
         client.setAddressClient("Wherever");
         client.setPhoneClient("0933355844");
 
-        manager.getDaoClient().addClientToDB(client);
+        manager.getDaoClient().add(client);
 
-        client = manager.getDaoClient().getClientByID(1);
+        client = manager.getDaoClient().getById(3);
         client.setNameClient("Updated Client");
         client.setAddressClient("new Updated address");
         client.setPhoneClient("0939339393");
 
-        manager.getDaoClient().updateClient(client);
-//        manager.getDaoClient().dellClient(manager.getDaoClient().getClientByID(2));
+        manager.getDaoClient().update(client);
 
         Good good = new Good();
         good.setNameGood("Car");
         good.setDescriptionGood("VW touareg");
         good.setPriceGood(20000);
 
-        manager.getDaoGoods().addGoodToDB(good);
-        good = manager.getDaoGoods().getGoodByID(1);
+        manager.getDaoGoods().add(good);
+        good = manager.getDaoGoods().getById(5);
         good.setNameGood("Name good updated");
         good.setDescriptionGood("new Description");
         good.setPriceGood(500.0);
 
-        manager.getDaoGoods().updateGood(good);
-//        manager.getDaoGoods().dellGood(manager.getDaoGoods().getGoodByID(2));
+        manager.getDaoGoods().update(good);
 
         Order order = new Order();
         order.setIdClient(client.getIdClient());
         order.setIdGoods(good.getIdGood());
 
-        manager.getDaoOrder().addOrderToDB(order);
-        order = manager.getDaoOrder().getOrderByID(1);
-        order.setIdClient(manager.getDaoClient().getClientByID(3).getIdClient());
-        order.setIdGoods(manager.getDaoGoods().getGoodByID(3).getIdGood());
-        manager.getDaoOrder().updateOrder(order);
-        manager.getDaoOrder().dellOrder(manager.getDaoOrder().getOrderByID(2));
-
+        manager.getDaoOrder().add(order);
+        order = manager.getDaoOrder().getById(1);
+        order.setIdClient(((Client) manager.getDaoClient().getById(4)).getIdClient());
+        order.setIdGoods(((Good) manager.getDaoGoods().getById(4)).getIdGood());
+        manager.getDaoOrder().update(order);
 
         System.out.println(client.toString());
         System.out.println(good.toString());
